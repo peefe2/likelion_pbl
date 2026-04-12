@@ -1,0 +1,154 @@
+/* 기본 설정 리셋 (박스 모델 기준을 테두리까지로 설정) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f5f6f8; /* 배경색 */
+    color: #333;
+    line-height: 1.6;
+    
+    /* 화면 정중앙 배치를 위한 Flexbox */
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* 전체 뼈대 컨테이너 */
+.container {
+    width: 100%;
+    max-width: 600px;
+    /* 상하 배치를 위한 Flexbox */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* 요약 카드와 상세 정보 영역 사이의 간격 (Margin 대체) */
+}
+
+/* =========================================
+   요약 카드 영역 스타일 (Box Model & Flexbox)
+   ========================================= */
+.summary-card {
+    background-color: #ffffff;
+    padding: 40px 30px; /* 안쪽 여백 (Padding) */
+    border: 1px solid #e1e4e8; /* 테두리 (Border) */
+    border-radius: 16px; /* 모서리 둥글게 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* 그림자 */
+    
+    /* 내부 요소 수직/가운데 정렬 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    background-color: #e1e4e8;
+    border-radius: 50%; /* 완전한 원형 */
+    margin-bottom: 20px; /* 바깥 여백 (Margin) */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888;
+    font-weight: bold;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.part {
+    font-size: 16px;
+    color: #0066ff;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.one-line-bio {
+    font-size: 15px;
+    color: #555;
+}
+
+/* =========================================
+   상세 자기소개 정보 영역 스타일
+   ========================================= */
+.detailed-info {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border: 1px solid #e1e4e8;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    
+    display: flex;
+    flex-direction: column;
+    gap: 32px; /* 각 상세 정보 문단 사이의 넓은 간격 유지 */
+}
+
+/* 세부 항목 제목과 내용 간격 */
+.info-group h2 {
+    font-size: 18px;
+    color: #111;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #f0f0f0; /* 제목 아래 구분선 (Border) */
+}
+
+.info-group p {
+    font-size: 15px;
+    color: #444;
+}
+
+/* 불렛 포인트 리스트 간격 */
+.info-group ul {
+    list-style-type: disc;
+    padding-left: 24px; /* 리스트 앞 여백 */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.info-group li {
+    font-size: 15px;
+    color: #444;
+}
+
+.info-group a {
+    color: #0066ff;
+    text-decoration: none;
+}
+
+.info-group a:hover {
+    text-decoration: underline;
+}
+
+/* 강조되는 '각오 한 마디' 박스 스타일 */
+.resolution {
+    background-color: #f0f8ff; /* 배경색 다르게 처리 */
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #0066ff; /* 왼쪽 테두리로 강조 (Border) */
+}
+
+.resolution h2 {
+    border-bottom: none; /* 하단 선 제거 */
+    color: #0066ff;
+    margin-bottom: 8px;
+    padding-bottom: 0;
+}
+
+
+.profile-img img {
+    width: 100%;       
+    height: 100%;     
+    
+    object-fit: cover; 
+    
+    border-radius: 50%; 
+} 

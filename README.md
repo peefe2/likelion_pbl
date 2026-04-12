@@ -8,4 +8,4 @@ Major : AI
 
 Part : FE
 
-Mbti : ENTP
+Mbti : ENTP 
