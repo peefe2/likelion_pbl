@@ -1,6 +1,6 @@
 # likelion_pbl
 
-NAME : pfe
+NAME : 전인철
 
 Affiliation : Sunchon National University(SCNU)
 
