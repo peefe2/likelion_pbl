@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 04 - Interactive Baby Lion Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>멋사 PBL - 아기 사자 대시보드 (v4)</h1>
+        <p>외부 데이터를 활용한 비동기 인터랙티브 대시보드</p>
+    </header>
+
+    <div class="control-area">
+        <div class="info-box">
+            현재 인원: <span id="total-count">0</span>명
+            <div id="status-message" class="status-ready">준비 완료</div>
+        </div>
+        
+        <div class="button-group">
+            <button id="btn-fetch-one" class="btn-fetch">랜덤 1명 추가</button>
+            <button id="btn-fetch-five" class="btn-fetch">랜덤 5명 추가</button>
+            <button id="btn-refresh" class="btn-fetch">전체 새로고침</button>
+            <button id="btn-toggle-form" class="btn-primary">수동 추가</button>
+            <button id="btn-delete-last" class="btn-secondary">마지막 삭제</button>
+        </div>
+    </div>
+
+    <section class="options-section">
+        <div class="options-container">
+            <div class="filter-group">
+                <label for="filter-part">파트 필터</label>
+                <select id="filter-part">
+                    <option value="all">전체</option>
+                    <option value="Frontend">Frontend</option>
+                    <option value="Backend">Backend</option>
+                    <option value="Design">Design</option>
+                </select>
+            </div>
+            <div class="sort-group">
+                <label for="sort-order">정렬 방식</label>
+                <select id="sort-order">
+                    <option value="latest">최신추가순</option>
+                    <option value="name">이름순</option>
+                </select>
+            </div>
+            <div class="search-group">
+                <label for="search-input">이름 검색</label>
+                <input type="text" id="search-input" placeholder="이름을 입력하세요...">
+            </div>
+        </div>
+    </section>
+
+    <div id="error-container" class="error-container hidden">
+        <p id="error-text">데이터를 불러오는 데 실패했습니다.</p>
+        <button id="btn-retry" class="btn-retry">다시 시도</button>
+    </div>
+
+    <section id="form-section" class="form-section hidden">
+        <div class="form-container">
+            <h2 class="section-title">새 아기 사자 등록</h2>
+            <form id="add-member-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="input-name">이름</label>
+                        <input type="text" id="input-name" placeholder="이름">
+                        <p class="error-msg hidden">이름을 입력해주세요.</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="select-part">활동 파트</label>
+                        <select id="select-part">
+                            <option value="">파트를 선택하세요</option>
+                            <option value="Frontend">Frontend</option>
+                            <option value="Backend">Backend</option>
+                            <option value="Design">Design</option>
+                        </select>
+                        <p class="error-msg hidden">파트를 선택해주세요.</p>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="input-skills">보유 기술 (쉼표로 구분)</label>
+                        <input type="text" id="input-skills" placeholder="예: HTML, CSS, JS">
+                        <p class="error-msg hidden">기술을 입력해주세요.</p>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="input-intro">자기소개</label>
+                        <textarea id="input-intro" rows="3" placeholder="간단한 자기소개를 적어주세요."></textarea>
+                        <p class="error-msg hidden">자기소개를 입력해주세요.</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-contact">연락처(이메일)</label>
+                        <input type="email" id="input-contact" placeholder="lion@example.com">
+                        <p class="error-msg hidden">올바른 이메일을 입력해주세요.</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-motto">좌우명</label>
+                        <input type="text" id="input-motto" placeholder="나만의 좌우명">
+                        <p class="error-msg hidden">좌우명을 입력해주세요.</p>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="btn-random-fill" class="btn-secondary">랜덤 값 채우기</button>
+                    <button type="submit" class="btn-submit">등록하기</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <main>
+        <section class="summary-section">
+            <h2 class="section-title">아기 사자 요약</h2>
+            <div id="summary-grid" class="summary-grid"></div>
+            <div id="empty-state" class="empty-state hidden">
+                <p>조건에 맞는 아기 사자가 없습니다. 🦁</p>
+            </div>
+        </section>
+
+        <section class="detail-section">
+            <h2 class="section-title">상세 자기소개 목록</h2>
+            <div id="detail-list" class="detail-list"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Lion PBL Project. All rights reserved.</p>
+    </footer>
+</body>
+</html>
