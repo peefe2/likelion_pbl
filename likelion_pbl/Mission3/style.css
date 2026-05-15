@@ -1,0 +1,302 @@
+/* style.css */
+
+:root {
+    --primary-color: #000000;
+    --accent-color: #FFDE00;
+    --highlight-color: #FF4500;
+    --text-color: #333333;
+    --bg-color: #F8F9FA;
+    --card-bg: #FFFFFF;
+    --border-width: 3px;
+    --gap: 20px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 40px 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    background: var(--accent-color);
+    display: inline-block;
+    padding: 5px 15px;
+    border: var(--primary-color) var(--border-width) solid;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    border-left: 10px solid var(--primary-color);
+    padding-left: 15px;
+}
+
+/* 요약 카드 그리드 */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap);
+    margin-bottom: 80px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: var(--primary-color) var(--border-width) solid;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 8px 8px 0px var(--primary-color);
+}
+
+.my-card {
+    border-color: var(--highlight-color);
+    background-color: #FFF5F0;
+    box-shadow: 8px 8px 0px var(--highlight-color);
+}
+
+/* 프로필 이미지 원형 & 사진 처리 */
+.profile-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    background-color: var(--accent-color);
+    border: var(--primary-color) var(--border-width) solid;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+    overflow: hidden; /* 사진이 원 밖으로 안 나가게 함 */
+}
+
+.profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 사진 비율 유지 */
+}
+
+.badge {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 20px;
+    border: #FFFFFF 2px solid;
+}
+
+/* 상세 자기소개 목록 */
+.detail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.detail-card {
+    background-color: var(--card-bg);
+    border: var(--primary-color) var(--border-width) solid;
+    padding: 30px;
+    box-shadow: 8px 8px 0px var(--accent-color);
+}
+
+.detail-info li {
+    margin-bottom: 10px;
+    list-style: none;
+}
+
+.detail-info li strong {
+    display: inline-block;
+    width: 120px;
+}
+
+/* 반응형 미디어 쿼리 */
+@media (max-width: 1024px) {
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+    .detail-info li strong {
+        display: block;
+        margin-bottom: 5px;
+    }
+}
+
+footer {
+    text-align: center;
+    margin-top: 100px;
+    color: #888;
+}
+
+/* --- Mission 03 추가 스타일 --- */
+
+.hidden {
+    display: none !important;
+}
+
+/* 컨트롤 영역 */
+.control-area {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--card-bg);
+    border: var(--primary-color) var(--border-width) solid;
+    box-shadow: 8px 8px 0px var(--primary-color);
+}
+
+.info-box {
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+#total-count {
+    color: var(--highlight-color);
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+}
+
+/* 버튼 공통 스타일 (네오 브루탈리즘) */
+button {
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 700;
+    padding: 10px 20px;
+    border: var(--primary-color) var(--border-width) solid;
+    transition: all 0.1s ease;
+}
+
+button:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px var(--primary-color) !important;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    box-shadow: 4px 4px 0px var(--primary-color);
+}
+
+.btn-secondary {
+    background-color: #eee;
+    box-shadow: 4px 4px 0px var(--primary-color);
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: var(--highlight-color);
+    color: white;
+    font-size: 1.1rem;
+    padding: 15px;
+    box-shadow: 6px 6px 0px var(--primary-color);
+}
+
+/* 입력 폼 영역 */
+.form-section {
+    max-width: 800px;
+    margin: 0 auto 50px;
+}
+
+.form-container {
+    background-color: var(--card-bg);
+    border: var(--primary-color) var(--border-width) solid;
+    padding: 30px;
+    box-shadow: 12px 12px 0px var(--accent-color);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.full-width {
+    grid-column: span 2;
+}
+
+label {
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+input, select, textarea {
+    padding: 12px;
+    border: var(--primary-color) 2px solid;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--highlight-color);
+    background-color: #fffdf0;
+}
+
+.error-msg {
+    color: var(--highlight-color);
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-top: -5px;
+}
+
+.form-actions {
+    margin-top: 30px;
+}
+
+/* 폼 반응형 */
+@media (max-width: 768px) {
+    .control-area {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width {
+        grid-column: span 1;
+    }
+}
